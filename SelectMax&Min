@@ -1,18 +1,33 @@
 Table: employee and profile 
 
+Employee:
+1. id       integer
+2. name     string
+3. position string
 
-SELECT employee.name, profile.salary from employee inner join profile
-on employee.id = profile.id WHERE 
-profile.salary = (SELECT min(salary) from profile)
+Profile:
+1. id       integer
+2. age      integer
+3. salary   integer
 
+======================================================================================
+To select min salary and max salary in 1 query.
 SELECT e.name, p.salary
 FROM employee e inner join profile p on e.id = p.id
 WHERE p.salary = (SELECT MAX(salary) FROM profile) OR
       p.salary = (SELECT MIN(salary) FROM profile);
-
+      
+To select min salary and max salary in 1 query.
 SELECT e.name, p.salary
 FROM employee e inner join profile p on e.id = p.id
 WHERE p.salary IN ((SELECT MAX(salary) FROM profile),(SELECT MIN(salary) FROM profile));
 
+
+To select min salary in 1 query.
+SELECT employee.name, profile.salary from employee inner join profile
+on employee.id = profile.id WHERE 
+profile.salary = (SELECT min(salary) from profile)
+
+To select max salary in 1 query.
 SELECT salary from profile
 order by salary DESC limit 1
