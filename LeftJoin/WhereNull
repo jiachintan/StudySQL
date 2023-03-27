@@ -1,0 +1,32 @@
+0183. Customers Who Never Order
+
+Input:
+Customers table:
++----+-------+
+| id | name  |
++----+-------+
+| 1  | Joe   |
+| 2  | Henry |
+| 3  | Sam   |
+| 4  | Max   |
++----+-------+
+Orders table:
++----+------------+
+| id | customerId |
++----+------------+
+| 1  | 3          |
+| 2  | 1          |
++----+------------+
+Output:
++-----------+
+| Customers |
++-----------+
+| Henry     |
+| Max       |
++-----------+
+
+SELECT a.name AS Customers FROM customers AS a
+LEFT JOIN orders AS b
+ON
+a.id = b.customerId
+WHERE b.CustomerId IS NULL
