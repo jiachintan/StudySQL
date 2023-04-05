@@ -1,0 +1,16 @@
+
+SUBSTRING(string, start, length)
+
+
+string	
+        Required. 
+        The string to extract from
+        
+start	
+        Required. 
+        The start position. 
+        The first position in string is 1
+
+length	
+        Required. 
+        The number of characters to extract. Must be a positive number
